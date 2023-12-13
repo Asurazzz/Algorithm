@@ -39,6 +39,39 @@ public class Code07_SelectionSort {
         }
     }
 
+    public static void insertSort1(int[] arr) {
+        if (arr == null || arr.length < 2) {
+            return;
+        }
+        // 0 ~ 0
+        // 0 ~ 1
+        // 0 ~ 2
+        int max = arr.length;
+        for (int end = 1; end < max; end++) {
+            int newNumIndex = end;
+            while (newNumIndex - 1 >= 0 && arr[newNumIndex - 1] > arr[newNumIndex]) {
+                swap(arr, newNumIndex - 1, newNumIndex);
+                newNumIndex--;
+            }
+        }
+    }
+
+    public static void insertSort2(int[] arr) {
+        if (arr == null || arr.length < 2) {
+            return;
+        }
+        // 0 ~ 0
+        // 0 ~ 1
+        // 0 ~ 2
+        int max = arr.length;
+        for (int end = 1; end < max; end++) {
+            // pre 新数的前一个位置
+            for (int pre = end - 1; pre >= 0 && arr[pre] > arr[pre + 1]; pre--) {
+                swap(arr, pre, pre + 1);
+            }
+        }
+    }
+
     public static void swap(int[] arr, int i, int j) {
         int tmp = arr[j];
         arr[j] = arr[i];
@@ -56,7 +89,7 @@ public class Code07_SelectionSort {
 
         int[] arr = {7, 1, 3, 5, 1, 6, 8, 1, 3, 5, 7, 5, 6};
         printArray(arr);
-        selectSort(arr);
+        insertSort2(arr);
         printArray(arr);
 
     }
