@@ -11,15 +11,32 @@ public class Code07_SelectionSort {
         if (arr == null || arr.length < 2) {
             return;
         }
-        int N = arr.length;
-        for (int i = 0; i < N; i++) {
+        int max = arr.length;
+        for (int i = 0; i < max; i++) {
             int minValueIndex = i;
-            for (int j = i + 1; j < N; j++) {
+            for (int j = i + 1; j < max; j++) {
                 minValueIndex = arr[j] < arr[minValueIndex] ? j : minValueIndex;
             }
             swap(arr, i, minValueIndex);
         }
 
+    }
+
+    public static void bubbleSort(int[] arr) {
+        if (arr == null || arr.length < 2) {
+            return;
+        }
+        // 0 ~ n-1
+        // 0 ~ n-2
+        int max = arr.length;
+        for (int end = max - 1; end >= 0; end--) {
+            // 0 ~ end上进行排序
+            for (int second = 1; second <= end; second++) {
+                if (arr[second - 1] > arr[second]) {
+                    swap(arr, second - 1, second);
+                }
+            }
+        }
     }
 
     public static void swap(int[] arr, int i, int j) {
