@@ -39,7 +39,7 @@ public class Code01_ReverseList {
         }
         Node pre = null;
         Node next = null;
-        while (head.next != null) {
+        while (head != null) {
             next = head.next;
             head.next = pre;
             pre = head;
